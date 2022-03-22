@@ -174,3 +174,9 @@ for($d=-5; $d<6; $d++ ) {
     var_dump((bool) ($d));
 };
 echo PHP_EOL;
+
+function divideNumbers(int $numberA, int $numberB = 1): int
+{
+return $numberA / $numberB;
+}
+var_dump(divideNumbers(5, 5));
