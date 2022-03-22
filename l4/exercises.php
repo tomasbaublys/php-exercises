@@ -89,7 +89,7 @@ function textReplicator(string $string, ?int $count = 1):string {
     }
 }
 echo textReplicator('some_text', 3), PHP_EOL;
-echo textReplicator('some_text', null), PHP_EOL;
+echo textReplicator('some_text', null);
 
 /*
 4. Paverskite funkciją 'textReplicator', į veikiančią anoniminę funkciją.

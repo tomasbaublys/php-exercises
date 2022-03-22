@@ -18,9 +18,10 @@ function exercise1(): array
     Skaidykite per underscore (_)
     */
     $longLine = 'Hello_how_are_you_doing?';
-
-    return [];
+    return explode('_', $longLine);
 }
+var_dump(exercise1());
+
 
 function exercise2(): array
 {
@@ -36,8 +37,15 @@ function exercise2(): array
         'real@gmail.com',
     ];
 
-    return [];
+    return array_filter(
+        $emails,
+        function (string $str) : ?string {
+            return str_contains($str, '@')
+            ? $str: null;
+        }
+    );
 }
+var_dump(exercise2());
 
 function exercise3(array $products): int
 {
@@ -45,9 +53,15 @@ function exercise3(array $products): int
     Suskaičiuokite ir grąžinkite visų $products masyve esančių eilučių ilgių sumą.
     Naudokite $someProducts masyvą
     */
-
-    return 0;
+    return array_reduce(
+        $products,
+        function (?int $count, $product): int {
+            $count += strlen($product);
+            return $count;
+        }
+    );
 }
+var_dump(exercise3($someProducts));
 
 function exercise4(array $products): int
 {
@@ -56,9 +70,15 @@ function exercise4(array $products): int
     į sumą neįtraukite tuščių simbolių - ty. tarpų, new line ir pan.
     Naudokite $someProducts masyvą.
     */
-
-    return 0;
+    return array_reduce(
+        $products,
+        function(?int $count, $product): int {
+            $count += strlen(trim($product));
+            return $count;
+        }
+    );
 }
+var_dump(exercise4($someProducts));
 
 function exercise5(): int
 {
